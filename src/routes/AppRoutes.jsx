@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import HomePage from "../pages/HomePage/HomePages"
+import HomePage from "../pages/HomePage/HomePage"
 
 // import PrivateRoute from "./PrivateRoute"
 
