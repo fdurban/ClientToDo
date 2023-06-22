@@ -98,7 +98,7 @@ const SignupForm = () => {
 
             <Form.Group className="mb-3" controlId="description">
                 <Form.Label>Description</Form.Label>
-                <Form.Control type="text" value={description} onChange={handleInputChange} name="description" style={{ height: '150px' }} />
+                <Form.Control as="textarea" type="text" value={description} onChange={handleInputChange} name="description"  style={{ height: '150px', verticalAlign: 'top'}} />
             </Form.Group>
 
             <div className="d-grid">

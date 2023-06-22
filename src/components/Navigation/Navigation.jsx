@@ -43,7 +43,7 @@ function Navigation() {
             <NavDropdown title="User" id="basic-nav-dropdown">
               <NavDropdown.Item href="action/3.1">Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Logout</NavDropdown.Item>
-              <NavDropdown.Item href="/sigupPage">Signup</NavDropdown.Item>
+              <NavDropdown.Item href="/register">Signup</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4">Login</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Todos</NavDropdown.Item>

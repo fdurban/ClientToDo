@@ -15,7 +15,7 @@ const SignupPage = () => {
 
                     <hr />
 
-                    {/* <SignupForm /> */}
+                    <SignupForm />
 
                 </Col>
             </Row>
