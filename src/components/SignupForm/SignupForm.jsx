@@ -15,8 +15,9 @@ const SignupForm = () => {
         email: '',
         password: '',
         birthdate: '',
-        position: '',              
+        position: '',
         avatar: null,
+        description: ''
     })
 
     const navigate = useNavigate()
@@ -44,7 +45,7 @@ const SignupForm = () => {
 
         authService
             .signup(signupData)
-            .then(({ data }) => navigate('/profile'))
+            .then(({ data }) => navigate('/'))
             .catch(err => console.log(err))
     }
 
@@ -58,7 +59,7 @@ const SignupForm = () => {
             <Form.Group className="mb-3" controlId="name">
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="text" value={name} onChange={handleInputChange} name="name" />
-            </Form.Group> 
+            </Form.Group>
 
             <Form.Group className="mb-3" controlId="surname">
                 <Form.Label>Middle Name</Form.Label>
@@ -85,20 +86,24 @@ const SignupForm = () => {
                 <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="image">
+            <Form.Group className="mb-3" controlId="avatar">
                 <Form.Label>Avatar (URL)</Form.Label>
-                <Form.Control type="file" onChange={handleFileUpload} />
+                <Form.Control type="file" value={avatar} onChange={handleFileUpload} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="birthdate">
                 <Form.Label>Birth date</Form.Label>
                 <Form.Control type="date" value={birthdate} onChange={handleInputChange} name="birthdate" />
-                {/* //Install date picker ? */}
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="birthdate">
+                <Form.Label>What is your position in your company?</Form.Label>
+                <Form.Control type="text" value={position} onChange={handleInputChange} name="position" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
                 <Form.Label>Description</Form.Label>
-                <Form.Control as="textarea" type="text" value={description} onChange={handleInputChange} name="description"  style={{ height: '150px', verticalAlign: 'top'}} />
+                <Form.Control as="textarea" type="text" value={description} onChange={handleInputChange} name="description" style={{ height: '150px', verticalAlign: 'top' }} />
             </Form.Group>
 
             <div className="d-grid">
