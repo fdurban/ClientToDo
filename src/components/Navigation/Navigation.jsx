@@ -1,26 +1,26 @@
 import { AuthContext } from '../../context/auth.context'
 import { useContext } from 'react'
 
-import {Nav , Navbar, NavDropdown, Container} from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 
 
 function Navigation() {
 
-    // const { user, logout } = useContext(AuthContext)
-    const navigate = useNavigate()
+  // const { user, logout } = useContext(AuthContext)
+  const navigate = useNavigate()
 
-    const logoutUser = () => {
-      // logout()
-      navigate('/login')
+  const logoutUser = () => {
+    // logout()
+    navigate('/login')
   }
 
   return (
-    <Navbar sticky='top' bg="light"  expand="lg">
+    <Navbar sticky='top' bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="/">
-              Powered by Cristian Mausque                
-          </Navbar.Brand>
+          Powered by Cristian Mausque
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -31,7 +31,7 @@ function Navigation() {
               className="nav-link"
             >
               Linkedin
-            </a> 
+            </a>
             <a
               href="https://github.com/CristianMausque"
               target="_blank"
@@ -39,12 +39,12 @@ function Navigation() {
               className="nav-link"
             >
               Github
-            </a> 
+            </a>
             <NavDropdown title="User" id="basic-nav-dropdown">
-              <NavDropdown.Item href="action/3.1">Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/profile/user/:_id">Profile</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Logout</NavDropdown.Item>
               <NavDropdown.Item href="/register">Signup</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Login</NavDropdown.Item>
+              <NavDropdown.Item href="/login">Login</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Todos</NavDropdown.Item>
             </NavDropdown>
