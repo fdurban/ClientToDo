@@ -21,8 +21,8 @@ function AuthProviderWrapper(props) {
     }
 
     const logout = () => {
-        setIsLoading(false)
         setUser(null)
+        setIsLoading(false)
         removeToken()
     }
 

@@ -28,7 +28,6 @@ const LogInForm = () => {
         authService
             .login(loginData)
             .then(({ data }) => {
-                console.log({ data })
                 storeToken(data.authToken)
                 authenticateUser()
                 navigate(`/profile/user/${data.user_id}`)
