@@ -18,10 +18,6 @@ class UserService {
         })
     }
 
-    getUsers() {
-        return this.api.get('/getAllUsers')
-    }
-
     getUserById(id) {
         return this.api.get(`/${id}`)
     }

@@ -9,16 +9,11 @@ function Navigation() {
 
   const { user, logout } = useContext(AuthContext)
   const navigate = useNavigate()
-  console.log(user,'>>>>>>>>>>>>>>>>')
 
   const logoutUser = () => {
     logout()
     navigate('/login')
   }
-
-  // if (!user) {
-  //   navigate('/login')
-  // }
 
   return (
     <Navbar sticky='top' bg="light" expand="lg">
@@ -47,7 +42,7 @@ function Navigation() {
             </a>
             <NavDropdown title="User" id="basic-nav-dropdown">
 
-              <NavDropdown.Item href={`/profile/user/${user?.id}`}>Profile</NavDropdown.Item>
+              <NavDropdown.Item href={`/profile/user`}>Profile</NavDropdown.Item>
               <NavDropdown.Item onClick={logoutUser}>Logout</NavDropdown.Item>
               <NavDropdown.Item href="/register">Signup</NavDropdown.Item>
               <NavDropdown.Item href="/login">Login</NavDropdown.Item>
