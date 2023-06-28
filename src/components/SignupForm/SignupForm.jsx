@@ -10,14 +10,11 @@ const SignupForm = () => {
     const [signupData, setSignupData] = useState({
         name: '',
         surname: '',
-        surname2: '',
         username: '',
         email: '',
         password: '',
-        birthdate: '',
         position: '',
-        avatar: null,
-        description: ''
+        avatar: null
     })
 
     const navigate = useNavigate()
@@ -50,10 +47,10 @@ const SignupForm = () => {
     }
 
 
-    const { name, surname, surname2, username, email, password, birthdate, position, avatar, description, } = signupData
+    const { name, surname, username, email, password, position, avatar } = signupData
 
     return (
-        <Container>
+        <Container >
 
             <Form onSubmit={handleSubmit}>
 
@@ -65,11 +62,6 @@ const SignupForm = () => {
                 <Form.Group className="mb-3" controlId="surname">
                     <Form.Label>Middle Name</Form.Label>
                     <Form.Control type="text" value={surname} onChange={handleInputChange} name="surname" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="surname2">
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="text" value={surname2} onChange={handleInputChange} name="surname2" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="username">
@@ -87,24 +79,14 @@ const SignupForm = () => {
                     <Form.Control type="password" value={password} onChange={handleInputChange} name="password" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="avatar">
-                    <Form.Label>Avatar (URL)</Form.Label>
-                    <Form.Control type="file" value={avatar} onChange={handleFileUpload} />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="birthdate">
-                    <Form.Label>Birth date</Form.Label>
-                    <Form.Control type="date" value={birthdate} onChange={handleInputChange} name="birthdate" />
-                </Form.Group>
-
                 <Form.Group className="mb-3" controlId="birthdate">
                     <Form.Label>What is your position in your company?</Form.Label>
                     <Form.Control type="text" value={position} onChange={handleInputChange} name="position" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="description">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control as="textarea" type="text" value={description} onChange={handleInputChange} name="description" style={{ height: '150px', verticalAlign: 'top' }} />
+                <Form.Group className="mb-3" controlId="avatar">
+                    <Form.Label>Avatar (URL)</Form.Label>
+                    <Form.Control type="file" onChange={handleFileUpload} />
                 </Form.Group>
 
                 <div className="d-grid">
@@ -113,7 +95,6 @@ const SignupForm = () => {
 
             </Form>
         </Container>
-
     )
 }
 

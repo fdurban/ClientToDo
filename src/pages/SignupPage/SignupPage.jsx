@@ -5,7 +5,7 @@ const SignupPage = () => {
 
     return (
 
-        <Container>
+        <Container style={{ marginTop: '7em' }}>
 
             <Row>
 

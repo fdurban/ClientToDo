@@ -1,8 +1,11 @@
 import { useState } from "react"
 import Todo from '../../components/Todo/Todo'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
+
 import "./Tab.css"
 
-function Tabs() {
+function Tabs({ userData }) {
+
     const [toggleState, setToggleState] = useState(1)
 
     const toggleTab = (index) => {
@@ -36,19 +39,14 @@ function Tabs() {
                 <div
                     className={toggleState === 1 ? "content  active-content" : "content"}
                 >
-                    <h2>Content 1</h2>
-                    {/* <Todo /> */}
+
 
                 </div>
 
                 <div
                     className={toggleState === 2 ? "content  active-content" : "content"}
                 >
-                    <h2>Content 2</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-                        voluptatum qui adipisci.
-                    </p>
+                    <ProfileCard userData={userData} />
                 </div>
 
                 <div
