@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Todo from '../../components/Todo/Todo'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
-
 import "./Tab.css"
 
 function Tabs({ userData }) {
@@ -39,7 +38,7 @@ function Tabs({ userData }) {
                 <div
                     className={toggleState === 1 ? "content  active-content" : "content"}
                 >
-
+                 <Todo />
 
                 </div>
 

@@ -29,7 +29,7 @@ const ProfilePage = () => {
 
     return (
   <div className="space">
-    <h1>Hello, <strong>{userData.username}</strong>!</h1>
+    <h4>Hello, <strong>{userData.username}</strong>!</h4>
     <Tab userData={userData} />
   </div>
   )
