@@ -29,7 +29,11 @@ const ProfilePage = () => {
 
     return (
   <div className="space">
+<<<<<<< HEAD
     <h3>Hello, <strong>{userData.username}</strong>!</h3>
+=======
+    <h4>Hello, <strong>{userData.username}</strong>!</h4>
+>>>>>>> 4d006605da4e4c28f263c16517622c204db7c7ae
     <Tab userData={userData} />
   </div>
   )

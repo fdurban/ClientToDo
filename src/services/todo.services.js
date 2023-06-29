@@ -18,6 +18,10 @@ class TodoService {
         })
     }
 
+    createTodo(todoData) {
+        return this.api.post(`/save`, todoData)
+    }
+
     getTodosByCreator(id) {
         return this.api.get(`/${id}`)
     }
@@ -27,4 +31,3 @@ const todoService = new TodoService()
 
 export default todoService 
 
-//mañana toca hacer esta vaina 

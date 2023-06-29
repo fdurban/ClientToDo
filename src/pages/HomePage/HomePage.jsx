@@ -12,7 +12,6 @@ const HomePage = () => {
 
 return (
     <div className="space">
-
     </div>
 )}
 
