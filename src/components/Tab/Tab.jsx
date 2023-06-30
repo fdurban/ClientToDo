@@ -38,7 +38,7 @@ function Tabs({ userData }) {
                 <div
                     className={toggleState === 1 ? "content  active-content" : "content"}
                 >
-                    <Todo />
+                    <Todo userData={userData}/>
 
                 </div>
 

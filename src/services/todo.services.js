@@ -19,15 +19,22 @@ class TodoService {
     }
 
     createTodo(todoData) {
-        return this.api.post(`/save`, todoData)
+        return this.api.post(`/save`, {todoData})
     }
 
     getTodosByCreator(id) {
         return this.api.get(`/${id}`)
     }
+
+    editTodoById(id) {
+        return this.api.put(`/${id}/edit`)
+    }
+    
+    deleteTodoById(id) {
+        return this.api.delete(`/${id}/delete`)
+    }
 }
 
 const todoService = new TodoService()
 
-export default todoService 
-
+export default todoService
