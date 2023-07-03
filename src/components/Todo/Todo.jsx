@@ -23,13 +23,13 @@ const Todo = ({ userData: user }) => {
     getAllTodo();
   }, []);
 
-  const updateTodO = (id) => {
+  const updateTodO = () => {
     todoService
-      .editTodoById(id)
-      .then((data) => {
+      .editTodoById(toDoId, title)
+      .then(() => {
         setTitle("");
         setIsUpdating(false);
-        updateMode(setToDo);
+        getAllTodo(setToDo);
       })
       .catch((err) => console.log(err));
   };
@@ -39,6 +39,26 @@ const Todo = ({ userData: user }) => {
     setTitle(title);
     setToDoId(_id);
   };
+
+  const create = () => {
+    todoService
+      .createTodo(title)
+      .then(() => {
+        getAllTodo();
+        setTitle("");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const deleteToDo = (_id) => {
+    todoService
+      .deleteTodoById(_id)
+      .then(() => {
+        getAllTodo();
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="App">
       <div className="container">
@@ -46,7 +66,7 @@ const Todo = ({ userData: user }) => {
           <textarea
             className="input"
             type="text"
-            placeholder="App Todos..."
+            placeholder={isUpdating ? { title } : "App Todos..."}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -54,19 +74,7 @@ const Todo = ({ userData: user }) => {
           <div
             className="add"
             onClick={
-              isUpdating // llamar a updatetodo o meter el then debajo de esta misma función
-                ? () =>
-                    todoService.editTodoById(
-                      toDoId,
-                      title,
-                      setToDo,
-                      setTitle,
-                      setIsUpdating
-                    )
-                : () => {
-                    todoService.createTodo(title, setTitle, setToDo);
-                    getAllTodo();
-                  }
+              isUpdating ? () => updateTodO(toDoId, title) : () => create()
             }
           >
             {isUpdating ? "Update" : "Add"}
@@ -77,11 +85,8 @@ const Todo = ({ userData: user }) => {
             <ToDoList
               key={item._id}
               title={item.title}
-              updateMode={() => todoService.editTodoById(item._id, item.title)}
-              deleteToDo={() => {
-                todoService.deleteTodoById(item._id, setToDo);
-                getAllTodo();
-              }}
+              updateMode={() => updateMode(item._id, item.title)}
+              deleteToDo={() => deleteToDo(item._id)}
             />
           ))}
         </div>
