@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .todo{
     position: relative;
     margin-top: 1rem;
@@ -20,3 +21,34 @@
     cursor: pointer;
     font-size: 20px;
   }
+=======
+.todo-list {
+    position: relative;
+    margin-top: 1rem;
+    color: #000;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.icons {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: flex-end;
+    right: 20px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+.text {
+
+}
+>>>>>>> d975492f23476c3a2bea876fba1eec23f6df6feb
