@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import React from 'react'
-import todoService from '../../services/todo.services'
-import {BiEdit} from 'react-icons/bi'
-import {AiFillDelete} from 'react-icons/ai'
-import '../TodoList/TodoList.css'
-=======
 import React from "react";
 import todoService from "../../services/todo.services";
 import { BiEdit } from "react-icons/bi";
 import { AiFillDelete, AiOutlineCheckSquare } from "react-icons/ai";
 import "../TodoList/TodoList.css";
->>>>>>> d975492f23476c3a2bea876fba1eec23f6df6feb
 
 const ToDoList = ({ title, done, updateMode, deleteToDo, toggleDone }) => {
   const titleClassName = done ? "done-title" : "undone-title";
