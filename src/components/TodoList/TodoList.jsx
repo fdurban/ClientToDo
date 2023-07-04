@@ -2,7 +2,7 @@ import React from 'react'
 import todoService from '../../services/todo.services'
 import {BiEdit} from 'react-icons/bi'
 import {AiFillDelete} from 'react-icons/ai'
-import '../Todo/Todo.css'
+import '../TodoList/TodoList.css'
 
 const ToDoList = ({ title, updateMode, deleteToDo }) => {
 
