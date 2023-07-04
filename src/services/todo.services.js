@@ -26,8 +26,8 @@ class TodoService {
         return this.api.get(`/${id}`)
     }
 
-    editTodoById(id, title) {
-        return this.api.put(`/${id}/edit`, {title} )
+    editTodoById(id, title, done) {
+        return this.api.put(`/${id}/edit`, {title, done} )
     }
     
     deleteTodoById(id) {

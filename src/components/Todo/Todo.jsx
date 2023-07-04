@@ -11,6 +11,7 @@ const Todo = ({ userData: user }) => {
   const [title, setTitle] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
   const [toDoId, setToDoId] = useState("");
+  const [done, setDone] = useState(false);
 
   const getAllTodo = () => {
     todoService
@@ -25,19 +26,21 @@ const Todo = ({ userData: user }) => {
 
   const updateTodO = () => {
     todoService
-      .editTodoById(toDoId, title)
+      .editTodoById(toDoId, title, done)
       .then(() => {
         setTitle("");
         setIsUpdating(false);
-        getAllTodo(setToDo);
+        setDone(false); // Reset done state after updating
+        getAllTodo();
       })
       .catch((err) => console.log(err));
   };
 
-  const updateMode = (_id, title) => {
+  const updateMode = (_id, title, done) => {
     setIsUpdating(true);
     setTitle(title);
     setToDoId(_id);
+    setDone(done); // Set the current value of done for the selected item
   };
 
   const create = () => {
@@ -56,6 +59,21 @@ const Todo = ({ userData: user }) => {
       .then(() => {
         getAllTodo();
       })
+      .catch((err) => console.log(err));
+  };
+
+  const toggleDone = (_id, done) => {
+    const updatedToDo = [...toDo];
+    const itemIndex = updatedToDo.findIndex((item) => item._id === _id);
+    updatedToDo[itemIndex].done = !done;
+
+    setToDo(updatedToDo);
+    todoService
+      .editTodoById(
+        _id,
+        updatedToDo[itemIndex].title,
+        updatedToDo[itemIndex].done
+      )
       .catch((err) => console.log(err));
   };
 
@@ -85,8 +103,10 @@ const Todo = ({ userData: user }) => {
             <ToDoList
               key={item._id}
               title={item.title}
-              updateMode={() => updateMode(item._id, item.title)}
+              done={item.done}
+              updateMode={() => updateMode(item._id, item.title, item.done)}
               deleteToDo={() => deleteToDo(item._id)}
+              toggleDone={() => toggleDone(item._id, item.done)}
             />
           ))}
         </div>
