@@ -5,7 +5,6 @@ import EditProfileForm from '../../components/EditProfileForm/EditProfileForm'
 import "./Tab.css"
 
 function Tabs({ userData, updateUserData }) {
-
     const [toggleState, setToggleState] = useState(1)
 
     const toggleTab = (index) => {
@@ -27,34 +26,18 @@ function Tabs({ userData, updateUserData }) {
                 >
                     <h5>Personal Info</h5>
                 </button>
-                {/* <button
-                    className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
-                    onClick={() => toggleTab(3)}
-                >
-                    <h5>Edit Info</h5>
-                </button> */}
             </div>
-
             <div className="content-tabs">
                 <div
                     className={toggleState === 1 ? "content  active-content" : "content"}
                 >
                     <Todo userData={userData} />
-
                 </div>
-
                 <div
                     className={toggleState === 2 ? "content  active-content" : "content"}
                 >
-                    <ProfileCard userData={userData} updateUserData={updateUserData}/>
-                    
+                    <ProfileCard userData={userData} updateUserData={updateUserData} />
                 </div>
-
-                {/* <div
-                    className={toggleState === 3 ? "content  active-content" : "content"}
-                >
-
-                </div> */}
             </div>
         </div>
     )

@@ -1,11 +1,11 @@
-import React from "react";
-import todoService from "../../services/todo.services";
-import { BiEdit } from "react-icons/bi";
-import { AiFillDelete, AiOutlineCheckSquare } from "react-icons/ai";
-import "../TodoList/TodoList.css";
+import React from "react"
+import todoService from "../../services/todo.services"
+import { BiEdit } from "react-icons/bi"
+import { AiFillDelete, AiOutlineCheckSquare } from "react-icons/ai"
+import "../TodoList/TodoList.css"
 
 const ToDoList = ({ title, done, updateMode, deleteToDo, toggleDone }) => {
-  const titleClassName = done ? "done-title" : "undone-title";
+  const titleClassName = done ? "done-title" : "undone-title"
 
   return (
     <div className="todo-list">
@@ -22,7 +22,7 @@ const ToDoList = ({ title, done, updateMode, deleteToDo, toggleDone }) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ToDoList;
+export default ToDoList

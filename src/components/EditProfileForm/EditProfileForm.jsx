@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button, Modal } from 'react-bootstrap'
 import { useContext, useEffect, useState } from 'react'
-// import FormError from '../FormError/FormError'
+import FormError from '../FormError/FormError'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import uploadServices from '../../services/upload.services'
 import usersService from '../../services/user.services'
@@ -21,6 +21,8 @@ const EditProfileForm = ({ userData, updateUserData }) => {
     const [loadingImage, setLoadingImage] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const [errors, setErrors] = useState([])
+
+    console.log('Aqui debería haber errores', setErrors )
 
     useEffect(() => {
         if (user) {
@@ -74,16 +76,17 @@ const EditProfileForm = ({ userData, updateUserData }) => {
             const { data } = await usersService.getUserById(user._id)
             updateUserData(data)
         } catch (err) {
-            console.log(err)
+            console.log('aqui deberia haber errors dos', err.response.data.errorMessages)
+            setErrors(err.response.data.errorMessages)
         }
     }
 
     const handleCloseModal = () => {
-        setShowModal(false);
+        setShowModal(false)
       }
     
       const handleOpenModal = () => {
-        setShowModal(true);
+        setShowModal(true)
       }
 
     if (!userFound) {
@@ -163,13 +166,16 @@ const EditProfileForm = ({ userData, updateUserData }) => {
                 <Form.Control type='file' onChange={handleFileUpload} />
             </Form.Group>
 
-{/* 
+
             <div className='mt-5'>
                 {errors && errors.length > 0 && <FormError> {errors.map(elm => <p>{elm}</p>)} </FormError>}
-            </div> */}
+            </div>
 
             <div className='d-grid mt-5'>
-                <Button variant='dark' type='submit' onClick={handleCloseModal} disabled={loadingImage}>{loadingImage ? 'Loading image...' : 'Update Profile'}</Button>
+                <Button variant='dark' type='submit' 
+                onClick={handleCloseModal} 
+                disabled={loadingImage}>
+                    {loadingImage ? 'Loading image...' : 'Update Profile'}</Button>
             </div>
         </Form>
 
