@@ -39,7 +39,7 @@ function Navigation() {
   return (
     <Navbar sticky='top' bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Powered by Cristian Mausque</Navbar.Brand>
+        <Navbar.Brand href="/">Powered by Cristian Mausque & Fernando Durban</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -49,7 +49,7 @@ function Navigation() {
               rel="noopener noreferrer"
               className="nav-link"
             >
-              Linkedin
+              Linkedin Cristian
             </a>
             <a
               href="https://github.com/CristianMausque"
@@ -57,7 +57,23 @@ function Navigation() {
               rel="noopener noreferrer"
               className="nav-link"
             >
-              Github
+              Github Cristian
+            </a>
+            <a
+              href="https://www.linkedin.com/in/fernando-durban-brizio-3861741b7/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+            >
+              Linkedin Fernando
+            </a>
+            <a
+              href="https://github.com/fdurban"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+            >
+              Github Fernando
             </a>
           </Nav>
           <Nav className="ml-auto"> {/* Agregamos la clase ml-auto */}
