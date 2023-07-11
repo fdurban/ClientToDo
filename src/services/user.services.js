@@ -21,6 +21,10 @@ class UserService {
     getUserById(id) {
         return this.api.get(`/${id}`)
     }
+
+    editUserById(editData) {
+        return this.api.put(`/edit`, editData)
+    }
 }
 
 const userService = new UserService()

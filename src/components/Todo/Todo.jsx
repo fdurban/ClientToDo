@@ -1,81 +1,81 @@
-import "./../Todo/Todo.css";
-import { useEffect, useState, useContext } from "react";
-import todoService from "../../services/todo.services";
-import { AuthContext } from "../../context/auth.context";
-import ToDoList from "../../components/TodoList/TodoList";
+import "./../Todo/Todo.css"
+import { useEffect, useState, useContext } from "react"
+import todoService from "../../services/todo.services"
+import { AuthContext } from "../../context/auth.context"
+import ToDoList from "../../components/TodoList/TodoList"
 
 const Todo = ({ userData: user }) => {
   // const { { user } } = useContext(AuthContext)
 
-  const [toDo, setToDo] = useState([]);
-  const [title, setTitle] = useState("");
-  const [isUpdating, setIsUpdating] = useState(false);
-  const [toDoId, setToDoId] = useState("");
-  const [done, setDone] = useState(false);
+  const [toDo, setToDo] = useState([])
+  const [title, setTitle] = useState("")
+  const [isUpdating, setIsUpdating] = useState(false)
+  const [toDoId, setToDoId] = useState("")
+  const [done, setDone] = useState(false)
 
   const getAllTodo = () => {
     todoService
       .getTodosByCreator(user._id)
       .then(({ data }) => setToDo(data))
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
   useEffect(() => {
-    getAllTodo();
-  }, []);
+    getAllTodo()
+  }, [])
 
   const updateTodO = () => {
     todoService
       .editTodoById(toDoId, title, done)
       .then(() => {
-        setTitle("");
-        setIsUpdating(false);
-        setDone(false); // Reset done state after updating
-        getAllTodo();
+        setTitle("")
+        setIsUpdating(false)
+        setDone(false) // Reset done state after updating
+        getAllTodo()
       })
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => console.log(err))
+  }
 
   const updateMode = (_id, title, done) => {
-    setIsUpdating(true);
-    setTitle(title);
-    setToDoId(_id);
-    setDone(done); // Set the current value of done for the selected item
-  };
+    setIsUpdating(true)
+    setTitle(title)
+    setToDoId(_id)
+    setDone(done) // Set the current value of done for the selected item
+  }
 
   const create = () => {
     todoService
       .createTodo(title)
       .then(() => {
-        getAllTodo();
-        setTitle("");
+        getAllTodo()
+        setTitle("")
       })
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => console.log(err))
+  }
 
   const deleteToDo = (_id) => {
     todoService
       .deleteTodoById(_id)
       .then(() => {
-        getAllTodo();
+        getAllTodo()
       })
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => console.log(err))
+  }
 
   const toggleDone = (_id, done) => {
-    const updatedToDo = [...toDo];
-    const itemIndex = updatedToDo.findIndex((item) => item._id === _id);
-    updatedToDo[itemIndex].done = !done;
+    const updatedToDo = [...toDo]
+    const itemIndex = updatedToDo.findIndex((item) => item._id === _id)
+    updatedToDo[itemIndex].done = !done
 
-    setToDo(updatedToDo);
+    setToDo(updatedToDo)
     todoService
       .editTodoById(
         _id,
         updatedToDo[itemIndex].title,
         updatedToDo[itemIndex].done
       )
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => console.log(err))
+  }
 
   return (
     <div className="App">
@@ -112,7 +112,7 @@ const Todo = ({ userData: user }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Todo;
+export default Todo

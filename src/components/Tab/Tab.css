@@ -22,7 +22,7 @@
     word-break: break-all;
     /* border: 1px solid rgba(0, 0, 0, 0.274); */
     border-radius: 0.25em;
-    box-shadow: 0 0.188em 1.550em rgb(100, 156, 156);
+    box-shadow: 0 0.1em 0.5em rgb(211, 211, 211);
   }
   
   .bloc-tabs {

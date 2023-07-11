@@ -21,6 +21,7 @@
     cursor: pointer;
     font-size: 20px;
   }
+
 .todo-list {
     position: relative;
     margin-top: 1rem;
@@ -47,6 +48,7 @@
     cursor: pointer;
     font-size: 20px;
 }
+
 .done-title {
     text-decoration: line-through;
     color: grey;
