@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .todo{
     position: relative;
     margin-top: 1rem;
@@ -21,7 +21,6 @@
     cursor: pointer;
     font-size: 20px;
   }
-=======
 .todo-list {
     position: relative;
     margin-top: 1rem;
@@ -48,13 +47,8 @@
     cursor: pointer;
     font-size: 20px;
 }
-
-<<<<<<< HEAD
 .done-title {
     text-decoration: line-through;
     color: grey;
 }
-=======
-}
->>>>>>> d975492f23476c3a2bea876fba1eec23f6df6feb
->>>>>>> f685ab34be597c8139592087608e7c0fc9334d77
+
