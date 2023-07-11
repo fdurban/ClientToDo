@@ -49,7 +49,7 @@ function Navigation() {
               rel="noopener noreferrer"
               className="nav-link"
             >
-              Linkedin Cristian
+              Linkedin
             </a>
             <a
               href="https://github.com/CristianMausque"
@@ -57,23 +57,7 @@ function Navigation() {
               rel="noopener noreferrer"
               className="nav-link"
             >
-              Github Cristian
-            </a>
-            <a
-              href="https://www.linkedin.com/in/fernando-durban-brizio-3861741b7/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link"
-            >
-              Linkedin Fernando
-            </a>
-            <a
-              href="https://github.com/fdurban"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link"
-            >
-              Github Fernando
+              Github
             </a>
           </Nav>
           <Nav className="ml-auto"> {/* Agregamos la clase ml-auto */}
