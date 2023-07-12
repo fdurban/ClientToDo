@@ -1,49 +1,42 @@
-import { AuthContext } from "../../context/auth.context";
-import { useContext, useState, useEffect } from "react";
-import "./Navigation.css";
-import { Nav, Navbar, NavDropdown, Container } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import userService from "../../services/user.services";
+import { AuthContext } from "../../context/auth.context"
+import { useContext, useState, useEffect } from "react"
+import "./Navigation.css"
+import { Nav, Navbar, NavDropdown, Container } from "react-bootstrap"
+import { Link, useNavigate } from "react-router-dom"
+import userService from "../../services/user.services"
 
 function Navigation() {
-  const { user, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const [userData, setUserData] = useState({});
+  const { user, logout } = useContext(AuthContext)
+  const navigate = useNavigate()
+  const [userData, setUserData] = useState({})
 
-  console.log(userData, "console.log de userdata");
+  console.log(userData, "console.log de userdata")
 
   useEffect(() => {
     if (user) {
-      getUserData();
+      getUserData()
     }
-  }, [user]);
+  }, [user])
 
   function getUserData() {
     userService
       .getUserById(user._id)
       .then(({ data }) => setUserData(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
   }
 
   const updateUserData = (updatedData) => {
-    setUserData(updatedData);
-  };
+    setUserData(updatedData)
+  }
 
   const logoutUser = () => {
-    logout();
-    navigate("/login");
-  };
+    logout()
+    navigate("/login")
+  }
 
-  const openCristian = () => {
-    window.open("https://www.linkedin.com/in/cristian-mausque");
-    window.open("https://github.com/CristianMausque");
-  };
-  const openFernando = () => {
-    window.open(
-      "https://www.linkedin.com/in/fernando-durban-brizio-3861741b7/"
-    );
-    window.open("https://github.com/fdurban");
-  };
+  const openLinkedInProfile = (url) => {
+    window.open(url)
+  }
 
   return (
     <Navbar sticky="top" bg="light" expand="lg">
@@ -54,26 +47,38 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <a
-              onClick={openCristian}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link"
-            >
-              Cristian
-            </a>
-            <a
-              onClick={openFernando}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link"
-            >
-              Fernando
-            </a>
+            <NavDropdown title="Cristian" id="cristian-dropdown">
+              <NavDropdown.Item
+                onClick={() =>
+                  openLinkedInProfile("https://www.linkedin.com/in/cristian-mausque")
+                }
+              >
+                LinkedIn
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={() => openLinkedInProfile("https://github.com/CristianMausque")}
+              >
+                GitHub
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Fernando" id="fernando-dropdown">
+              <NavDropdown.Item
+                onClick={() =>
+                  openLinkedInProfile(
+                    "https://www.linkedin.com/in/fernando-durban-brizio-3861741b7/"
+                  )
+                }
+              >
+                LinkedIn
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={() => openLinkedInProfile("https://github.com/fdurban")}
+              >
+                GitHub
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
-          <Nav className="ml-auto">
-            {" "}
-            {/* Agregamos la clase ml-auto */}
+          <Nav className="derecha">
             <NavDropdown title="User" id="basic-nav-dropdown">
               {user ? (
                 <>
@@ -97,7 +102,7 @@ function Navigation() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+  )
 }
 
-export default Navigation;
+export default Navigation
