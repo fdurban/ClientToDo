@@ -82,15 +82,21 @@ function Navigation() {
             <NavDropdown title="User" id="basic-nav-dropdown">
               {user ? (
                 <>
-                  <NavDropdown.Item href={`/profile`}>Profile</NavDropdown.Item>
+                  <NavDropdown.Item href={`/profile`}>
+                  <Link to={'/profile'}>profile </Link>
+                  </NavDropdown.Item>
                   <NavDropdown.Item onClick={logoutUser}>
                     Logout
                   </NavDropdown.Item>
                 </>
               ) : (
                 <>
-                  <NavDropdown.Item href="/register">Signup</NavDropdown.Item>
-                  <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+                  <NavDropdown.Item >
+                  <Link to={'/register'}>signup </Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item >
+                  <Link to={'/login'}>login </Link>
+                  </NavDropdown.Item>
                 </>
               )}
             </NavDropdown>
