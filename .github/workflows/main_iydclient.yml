@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'iydclient'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DDEA7E3DAEEB439FABE7CFC5A12671F5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8F109CA70EBA4475A9C8BFE8DECA66C4 }}
           package: .
